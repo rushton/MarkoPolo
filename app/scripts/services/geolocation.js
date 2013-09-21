@@ -26,6 +26,12 @@ angular.module('markopoloApp')
          navigator.geolocation.getCurrentPosition(function(pos) {
             getExtra(pos.coords.latitude,pos.coords.longitude,callback);  
        })
+      },
+      fromCity: function(city, state, callback) {
+         console.log(geocoder)
+         geocoder.geocode({'address': [city, state].join(', ')}, function(res) {
+            callback({lat: res[0].geometry.location.ob, long: res[0].geometry.location.pb})
+         })
       }
     }
   });
