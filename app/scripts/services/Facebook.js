@@ -14,6 +14,18 @@ angular.module('markopoloApp')
       }
 
       return {
+        getFriends: function(FB) {
+          var deferred = $q.defer();
+          FB.getLoginStatus(function(response) {
+              FB.api('/me/friends', function(response) {
+                resolve(null, response, deferred);
+              });
+          });
+
+          var promise = deferred.promise;
+          return promise;
+        },
+
         getUser: function(FB) {
           var deferred = $q.defer();
           FB.getLoginStatus(function(response) {
@@ -30,7 +42,7 @@ angular.module('markopoloApp')
                 } else {
                   resolve(response.error, null, deferred);
                 }
-              });
+              }, {scope: 'email,user_likes'});
             }
           });
 
@@ -38,5 +50,6 @@ angular.module('markopoloApp')
           promise.connected = false;
           return promise;
         }
+
       };
   });

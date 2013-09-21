@@ -1,22 +1,16 @@
 'use strict';
 
 angular.module('markopoloApp')
-  .controller('MainCtrl', function ($scope,Geolocation, Location) {
-    //$scope.user = Facebook.getUser(FB);
-    //console.log($scope.user);
-    $scope.user_id = 0
-    Geolocation.getLocation(function(pos){
-       console.log(pos);
-    })
-
+  .controller('MainCtrl', function ($scope, Facebook, Geolocation, Locationposter) {
+    $scope.user = Facebook.getUser(FB);
     Geolocation.getLocation(function(place){
        $scope.location = place;
-       var doc = {name: 'nick', place: place, user_id: 1};
-       Location.save(doc) 
+       Locationposter.save({lat: place.coords.latitude, long: place.coords.longitude, user_id: 0})
        $scope.$apply()
     })
 
-    Location.find($scope.user_id).then(function(rows) {
-       $scope.people = rows.data;
+    var friendPromise = Facebook.getFriends(FB);
+    friendPromise.then(function(data) {
+      $scope.friends = data.data;
     });
   });
