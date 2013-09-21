@@ -1,11 +1,15 @@
 <div class="hero-unit">
-  <div id="fb-root"></div>
+  <div id="fb-root">
+      <div class="ng-cloak" ng-show="user.connected">
+      Hello {{user.first_name}}!
+      </div>
 
-  <div class="ng-cloak" ng-show="user.connected">
-  Hello {{user.first_name}}!
-  </div>
+      <div class="ng-cloak" ng-hide="user.connected">
+        Wait
+      </div>
 
-  <div class="ng-cloak" ng-hide="user.connected">
-    Wait
+      <ul>
+         <li ng-repeat="friend in friends">{{friend.name}}</li>
+      </ul>
   </div>
 </div>

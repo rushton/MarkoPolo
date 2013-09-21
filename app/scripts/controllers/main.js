@@ -6,4 +6,9 @@ angular.module('markopoloApp')
     Geolocation.getLocation(function(pos){
        console.log(pos);
     })
+
+    var friendPromise = Facebook.getFriends(FB);
+    friendPromise.then(function(data) {
+      $scope.friends = data.data;
+    });
   });
