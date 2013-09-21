@@ -2,10 +2,6 @@
 
 angular.module('markopoloApp')
   .factory('Facebook', function ($rootScope, $q) {
-      // resolving or rejecting a promise from a third-party
-      // API such as Facebook must be
-      // performed within $apply so that watchers get
-      // notified of the change
       var resolve = function(errval, retval, deferred) {
         $rootScope.$apply(function() {
           if (errval) {
@@ -37,6 +33,7 @@ angular.module('markopoloApp')
               });
             }
           });
+
           var promise = deferred.promise;
           promise.connected = false;
           return promise;
