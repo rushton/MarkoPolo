@@ -9,10 +9,20 @@
         Wait
       </div>
 
-      <ul>
-         <li ng-repeat="friend in friends">{{friend.name}}</li>
-      </ul>
   </div>
+
+  <span id="list" ng-show="showFriendList">
+      <ul class="unstyled">
+         <li ng-repeat="friend in friends">
+            <img src="https://graph.facebook.com/{{friend.id}}/picture">
+            <input type="checkbox" ng-model="selectedFriends[friend.id]" />{{friend.name}}
+        </li>
+      </ul>
+
+      <form class="section red" id="subscription-form">
+          <button class="subscription-submit" id="subscription-submit" ng-click="spamMe()">Spam me</button>
+      </form>
+  </span>
 </div>
 <p ng-repeat="person in people">
 {{person.name}} in {{person.place.locality}} ({{person.place.neighborhood}})

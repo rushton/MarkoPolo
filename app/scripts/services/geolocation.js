@@ -61,7 +61,7 @@ angular.module('markopoloApp')
             return fromCity(v)
          })).then(function(data){
                var v = data.filter(function(v,k) { 
-                  return range > getDistanceFromLatLonInMiles(v.lat,v.long,source.lat,source.long) })
+                  return range > getDistanceFromLatLonInMiles(v.lat,v.long,source.latitude,source.longitude) })
                deferred.resolve(v.map(function(v,k) { return v.user }));
          });
          return deferred.promise;
