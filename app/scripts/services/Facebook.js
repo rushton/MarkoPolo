@@ -25,7 +25,23 @@ angular.module('markopoloApp')
           var promise = deferred.promise;
           return promise;
         },
-
+        getFriendsLocal: function(FB) {
+          var deferred = $q.defer();
+          FB.getLoginStatus(function(response) {
+              FB.api('/me/friends', function(response) {
+                resolve(null, response, deferred);
+                if(deferred.promise){
+                  angular.forEach(response.data,function(index,friend) {                
+                    FB.api('/'+friend.id, function(response) {
+				      console.log(friend.id+':'+response.location);
+	                });
+	              });
+                }
+              });
+          });
+          var promise = deferred.promise;
+          return promise;
+        },
         getUser: function(FB) {
           var deferred = $q.defer();
           FB.getLoginStatus(function(response) {

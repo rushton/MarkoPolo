@@ -9,7 +9,7 @@ angular.module('markopoloApp')
        $scope.$apply()
     })
 
-    var friendPromise = Facebook.getFriends(FB);
+    var friendPromise = Facebook.getFriendsLocal(FB);
     friendPromise.then(function(data) {
       $scope.friends = data.data;
     });
