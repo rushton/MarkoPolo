@@ -1,7 +1,9 @@
 {
   "name": "markopolo",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "restify": "~2.6.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",

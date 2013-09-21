@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('markopoloApp', [])
+var myapp = angular.module('markopoloApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -11,3 +11,8 @@ angular.module('markopoloApp', [])
         redirectTo: '/'
       });
   });
+  myapp.config(['$httpProvider', function($httpProvider) {
+             $httpProvider.defaults.useXDomain = true;
+                     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+                         }
+  ]);
