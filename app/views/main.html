@@ -1,1 +1,12 @@
 <h3>Welcome to {{location.locality}}</h3>
+<div class="hero-unit">
+  <div id="fb-root"></div>
+
+  <div class="ng-cloak" ng-show="user.connected">
+  Hello {{user.first_name}}!
+  </div>
+
+  <div class="ng-cloak" ng-hide="user.connected">
+    Wait
+  </div>
+</div>
