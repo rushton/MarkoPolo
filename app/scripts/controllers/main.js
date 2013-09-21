@@ -13,4 +13,12 @@ angular.module('markopoloApp')
     friendPromise.then(function(data) {
       $scope.friends = data.data;
     });
+
+    $scope.selectedFriends = {};
+    $scope.showFriendList = true;
+
+    $scope.spamMe = function() {
+        $scope.showFriendList = false;
+        console.log($scope.selectedFriends);
+    };
   });
