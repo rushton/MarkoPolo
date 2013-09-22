@@ -17,7 +17,7 @@ angular.module('markopoloApp')
         },
         {
            name: 'Taylor Parks',
-           number: '206949408189',
+           number: '2069408189',
            image: 'img/taylor.jpg',
            user_id: 1 
         },
