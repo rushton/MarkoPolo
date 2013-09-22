@@ -19,7 +19,7 @@ angular.module('markopoloApp')
            name: 'Taylor Parks',
            number: '2069408189',
            image: 'img/taylor.jpg',
-           user_id: 1 
+           user_id: 1
         },
         {
            name: 'Jun Hwang',
@@ -30,7 +30,7 @@ angular.module('markopoloApp')
            name: 'Jaryd Madlena',
            number: '2532199558',
            image: 'img/jaryd.jpg',
-           user_id: 3 
+           user_id: 3
         },
         {
            name: 'Kristen Petche',
@@ -41,12 +41,12 @@ angular.module('markopoloApp')
         {
            name: 'Norman Wu',
            number: '2069476818',
-           user_id:5 
+           user_id:5
         },
         {
            name: 'Victoria Robertson',
            number: '6193709896',
-           user_id:6 
+           user_id:6
         },
         {
            name: 'Chenyu Wang',

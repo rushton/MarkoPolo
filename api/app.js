@@ -10,7 +10,7 @@ var tclient = new twilio.RestClient('AC7fe56257ebd5ecf76f306b9de4037339', '12cfb
 var server = restify.createServer();
 mongoose.connect('mongodb://write:coolbreadshirt@widmore.mongohq.com:10000/ScreenEasy');
 
-var UserLocation = mongoose.model('UserLocation', { 
+var UserLocation = mongoose.model('UserLocation', {
    place: {
       coords: {
          latitude: Number,
@@ -20,7 +20,7 @@ var UserLocation = mongoose.model('UserLocation', {
       administrative_area_level_1: String,
       neighborhood: String
    },
-   user_id: String, 
+   user_id: String,
    image: String,
    created: {type: Date, default: Date.now},
    number: String,
@@ -33,14 +33,13 @@ server.use(
     return next();
   }
 );
-server.use(restify.bodyParser()); 
-server.use(restify.queryParser()); 
+server.use(restify.bodyParser());
+server.use(restify.queryParser());
 
 server.get('/hello/:name', respond);
 server.get('/location', function(req,res) {
-   console.log(req.params);
    UserLocation.find({}).where('user_id').sort('-created').limit(5).exec(function(err,rows){
-      res.send(rows)  
+      res.send(rows)
    });
 });
 server.post('/location/', function(req,res) {
