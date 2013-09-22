@@ -49,6 +49,7 @@ angular.module('markopoloApp')
          return deferred.promise;
     }
     return {
+       distanceFrom: getDistanceFromLatLonInMiles,
        getLocation: function(callback) {
          navigator.geolocation.getCurrentPosition(function(pos) {
             getExtra(pos.coords.latitude,pos.coords.longitude,callback);  

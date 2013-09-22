@@ -78,8 +78,10 @@ angular.module('markopoloApp')
           Location.find().then(function(data) {
              var n = data.data.filter(function(d) { return ids.indexOf(d._id) < 0; });
              angular.forEach(n,function(d) { $scope.users.unshift(d)});
+             angular.forEach($scope.users, function(d) { d.distanceFrom = Math.floor(Geolocation.distanceFrom(d.place.coords.latitude,d.place.coords.longitude, user.place.coords.latitude, user.place.coords.longitude)*5280);});
              ids = data.data.map(function(d) { return d._id;});
+             console.log($scope.users);
           });
-       }, 2500);
+       }, 1000);
     })
   });

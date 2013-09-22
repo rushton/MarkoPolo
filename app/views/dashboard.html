@@ -49,7 +49,7 @@
                      <li ng-repeat="person in users">
                         <label>
                            <input type="checkbox" ng-model="person.selected" ng-checked="{{person.selected}}" name="friends[]" value="{{person._id}}" />
-                           <img class="profile-pic" ng-src="{{person.image || 'img/profile.png'}}" alt="profile"><img src="img/tranparency_checkbox.png" class="circle-check" alt="tranparency_checkbox">{{person.name}}
+                           <img class="profile-pic" ng-src="{{person.image || 'img/profile.png'}}" alt="profile"><img src="img/tranparency_checkbox.png" class="circle-check" alt="tranparency_checkbox">{{person.name}} {{person.distanceFrom}}ft away
                         </label>
                      </li>
                 	</ul>
