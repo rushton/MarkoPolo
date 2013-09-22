@@ -15,6 +15,10 @@
    margin-top:10px;
    line-height:70px;
 }
+select {
+   background: #06C8AA;
+}
+
 html,
 button,
 input,
