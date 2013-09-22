@@ -80,7 +80,6 @@ angular.module('markopoloApp')
              angular.forEach(n,function(d) { $scope.users.unshift(d)});
              angular.forEach($scope.users, function(d) { d.distanceFrom = Math.floor(Geolocation.distanceFrom(d.place.coords.latitude,d.place.coords.longitude, user.place.coords.latitude, user.place.coords.longitude)*5280);});
              ids = data.data.map(function(d) { return d._id;});
-             console.log($scope.users);
           });
        }, 1000);
     })
