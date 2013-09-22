@@ -21,7 +21,9 @@ var UserLocation = mongoose.model('UserLocation', {
       neighborhood: String
    },
    user_id: String, 
+   image: String,
    created: {type: Date, default: Date.now},
+   number: String,
    name: String});
 
 server.use(
@@ -37,7 +39,7 @@ server.use(restify.queryParser());
 server.get('/hello/:name', respond);
 server.get('/location', function(req,res) {
    console.log(req.params);
-   UserLocation.find({}).where('user_id').ne(req.params.user_id).exec(function(err,rows){
+   UserLocation.find({}).where('user_id').sort('-created').limit(5).exec(function(err,rows){
       res.send(rows)  
    });
 });

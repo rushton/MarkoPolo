@@ -9,12 +9,11 @@
     <title></title>
 
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/bootstrap.css">
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/normalize.min.css">
         <!-- endbuild -->
 </head>
   <body ng-app="markopoloApp">
@@ -58,14 +57,9 @@
     <script src="scripts/services/Facebook.js"></script>
     <script src="scripts/services/geolocation.js"></script>
     <script src="scripts/services/locationposter.js"></script>
+    <script src="scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="scripts/services/text.js"></script>
     <!-- endbuild -->
-
-    <script>
-        FB.init({
-          appId  : '497294650366687',
-          status : true,
-          xfbml  : true
-        });
-    </script>
-</body>
+    </body>
 </html>

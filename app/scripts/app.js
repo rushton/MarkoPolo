@@ -3,9 +3,12 @@
 var myapp = angular.module('markopoloApp', [])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
         controller: 'MainCtrl'
+      })
+      .when('/', {
+         templateUrl: 'views/landing.html'
       })
       .otherwise({
         redirectTo: '/'
