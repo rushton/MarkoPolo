@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "restify": "~2.6.0",
-    "mongoose": "~3.6.19"
+    "mongoose": "~3.6.19",
+    "twilio": "~1.2.0"
   }
 }

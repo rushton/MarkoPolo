@@ -1,10 +1,12 @@
 var restify = require('restify');
 var mongoose = require('mongoose');
+var twilio = require('twilio');
 
 function respond(req, res, next) {
      res.send('hello ' + req.params.name);
 }
 
+var tclient = new twilio.RestClient('AC7fe56257ebd5ecf76f306b9de4037339', '12cfb959bae16d9e4450e6949ffe58ee');
 var server = restify.createServer();
 mongoose.connect('mongodb://write:coolbreadshirt@widmore.mongohq.com:10000/ScreenEasy');
 
@@ -39,7 +41,7 @@ server.get('/location', function(req,res) {
       res.send(rows)  
    });
 });
-server.post('location/', function(req,res) {
+server.post('/location/', function(req,res) {
    var loc = new UserLocation(req.body);
    loc.save(function (err) {
         if (err) // ...
@@ -47,6 +49,20 @@ server.post('location/', function(req,res) {
         res.send({status:'success'});
    });
 
+});
+
+server.post('/text', function(req,res) {
+      tclient.sms.messages.create({
+         to:req.body.to,
+         from:req.body.from,
+         body:req.body.body
+      },
+      function(err, message) {
+         if (err)
+            res.send({'status': 'error', 'message': err})
+         else
+            res.send({'status': 'success'})
+      });
 });
 
 server.listen(8080, function() {

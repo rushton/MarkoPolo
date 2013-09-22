@@ -16,9 +16,8 @@ angular.module('markopoloApp')
 
        var friendPromise = Facebook.getFriends(FB);
        friendPromise.then(function(data) {
-         $scope.friends = data.data;
          Geolocation.findNearby(place.coords,data.data.filter(function(v,k){ return v.location && v.location.name}), 5).then(function(d) { 
-            console.log(d)
+            $scope.friends = d;
          })
          //Geolocation.findNearby(place,data.data);
        });
