@@ -8,7 +8,7 @@ function respond(req, res, next) {
 
 var tclient = new twilio.RestClient('AC7fe56257ebd5ecf76f306b9de4037339', '12cfb959bae16d9e4450e6949ffe58ee');
 var server = restify.createServer();
-mongoose.connect('mongodb://write:coolbreadshirt@widmore.mongohq.com:10000/ScreenEasy');
+mongoose.connect('');
 
 var UserLocation = mongoose.model('UserLocation', {
    place: {
